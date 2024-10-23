@@ -1,10 +1,12 @@
 @import "./fonts.scss";
 @import "./normalize.scss";
 @import "./components/index.scss";
+@import "./components/page-links.scss";
+@import "./components/points.scss";
 
 body {
 	background-color: #ffffff;
-	color: #1f2f43;
+	color: var(--color-bg-primary);
 	font-family: var(--ffP), sans-serif;
 	overflow-x: hidden;
 	touch-action: manipulation;
@@ -155,6 +157,7 @@ textarea {
 
 html {
 	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 
 [hidden],

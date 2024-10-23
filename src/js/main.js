@@ -1,10 +1,10 @@
 
 
 (async () => {
-	if (document.querySelector('.wrapper')) {
+	if (document.querySelector('.page-links')) {
 		try {
-			const { test } = await import(/* webpackChunkName: "test" */ './helpers/test.js');
-			test();
+			const { scrollLinks } = await import(/* webpackChunkName: "scrollLinks" */ './helpers/scroll-links.js');
+			scrollLinks();
 		} catch (error) {
 			console.error('Error loading test module:', error);
 		}

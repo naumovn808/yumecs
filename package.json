@@ -67,7 +67,8 @@
 		"gulp-cheerio": "^1.0.0",
 		"gulp-real-favicon": "^0.3.2",
 		"gulp-svgstore": "^9.0.0",
+		"localtunnel": "^2.0.2",
 		"sharp": "^0.33.5",
-		"swiper": "^8.4.5"
+		"swiper": "^8.4.7"
 	}
 }

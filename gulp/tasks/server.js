@@ -1,6 +1,7 @@
 import { filePaths } from '../config/paths.js';
+import localtunnel from 'localtunnel';
 
-const server = (instance) => {
+const server = async (instance) => {
 	instance.init({
 		server: {
 			baseDir: filePaths.buildFolder,
@@ -12,6 +13,14 @@ const server = (instance) => {
 		reloadOnRestart: true,
 		port: 3000,
 		publicPath: '/',
+	});
+
+	const tunnel = await localtunnel({ port: 3000 });
+
+	console.log('LocalTunnel URL:', tunnel.url); 
+
+	tunnel.on('close', () => {
+		console.log('Tunnel closed');
 	});
 };
 
