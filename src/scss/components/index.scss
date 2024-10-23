@@ -21,6 +21,11 @@ nav {
 		align-items: center;
 		gap: calc(var(--offset) * 0.6);
 
+		& img {
+			width: calc(var(--offset) * 2);
+			height: calc(var(--offset) * 2);
+		}
+
 		& span {
 			font-weight: 500;
 			font-size: calc(var(--fz) * 1.1);

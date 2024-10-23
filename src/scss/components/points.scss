@@ -67,7 +67,7 @@
 	& span {
 		margin-top: auto;
 		font-weight: 600;
-		font-size: 20px;
+		font-size: calc(var(--fz) * 1.1);
 		line-height: 120%;
 		text-transform: capitalize;
 		color: var(-color-text-primary);
@@ -75,7 +75,7 @@
 
 	b {
 		font-weight: 600;
-		font-size: 20px;
+		font-size: calc(var(--fz) * 1.1);
 		line-height: 1.1;
 		color: var(-color-text-primary);
 		margin-bottom: var(--offset);
@@ -83,7 +83,7 @@
 
 	p {
 		font-weight: 400;
-		font-size: calc(var(--offset) * 0.8);
+		font-size: calc(var(--fz) * 1.1);
 		line-height: 120%;
 		color: #5d5d5d;
 		grid-column: span 2;
@@ -108,7 +108,7 @@
 
 	& p {
 		font-weight: 600;
-		font-size: 20px;
+		font-size: calc(var(--fz) * 1.1);
 		line-height: 1;
 		margin: 0;
 		text-transform: capitalize;
