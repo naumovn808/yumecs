@@ -105,6 +105,7 @@
 	justify-content: space-between;
 	padding: calc(var(--offset) * 1.2) var(--offset);
 	background-color: #f1f4f8;
+	margin-bottom: var(--offset);
 
 	& p {
 		font-weight: 600;

@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="ru">
-	@@include('../components/head.html', { 'title': 'Главная' })
-	@@include('../components/sprite.html')
+@@include('../components/head.html', { 'title': 'Главная' })
+@@include('../components/sprite.html')
 
-	<body>
-		<div class="container">@@include('../components/header.html')</div>
+<body>
+	<div class="container">@@include('../components/header.html')</div>
 
-		@@include('../components/page-links.html')
-		<div class="container">
-			 @@include('../components/points.html')
-			 @@include('../components/calculation.html')
-		</div>
+	@@include('../components/page-links.html')
 
-		<script type="module" src="./js/main.min.js"></script>
-	</body>
+	<div class="container">
+
+		@@include('../components/points.html')
+		@@include('../components/calculation.html')
+		@@include('../components/slider.html')
+		
+	</div>
+
+	<script type="module" src="./js/main.min.js"></script>
+</body>
+
 </html>

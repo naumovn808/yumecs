@@ -3,6 +3,7 @@
 @import "./components/index.scss";
 @import "./components/page-links.scss";
 @import "./components/points.scss";
+@import "./components/slider.scss";
 
 body {
 	background-color: #ffffff;
@@ -72,6 +73,7 @@ body {
 	max-width: 780px;
 	margin: 0 auto;
 	width: 100%;
+	overflow: hidden;
 }
 
 h1,
