@@ -11,15 +11,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   scrollLinks: function() { return /* binding */ scrollLinks; }
 /* harmony export */ });
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "../../node_modules/swiper/swiper.esm.js");
+
 function scrollLinks() {
-  let isScrolling;
-  document.querySelector(".page-links").addEventListener("scroll", () => {
-    const links = document.querySelectorAll(".page-links a");
-    links.forEach((link) => link.style.pointerEvents = "none");
-    clearTimeout(isScrolling);
-    isScrolling = setTimeout(() => {
-      links.forEach((link) => link.style.pointerEvents = "");
-    }, 100);
+  const swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".links-container", {
+    slidesPerView: "auto",
+    slidesPerGroup: 1,
+    centeredSlides: false,
+    loop: false,
+    grabCursor: true
   });
 }
 
