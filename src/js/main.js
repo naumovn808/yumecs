@@ -20,4 +20,13 @@ async function init() {
 			console.error("Error loading test module:", error);
 		}
 	}
+
+	if (document.querySelector(".tabs")) {
+		try {
+			const { tabs } = await import(/* webpackChunkName: "tabs" */ "./utils/tabs.js");
+			tabs();
+		} catch (error) {
+			console.error("Error loading test module:", error);
+		}
+	}
 }

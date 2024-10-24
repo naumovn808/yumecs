@@ -1,0 +1,48 @@
+.tabs {
+	&__links {
+		display: grid;
+		grid-template-columns: 50% 50%;
+		align-items: center;
+		border-radius: 1em;
+		background-color: #f1f4f8;
+		position: relative;
+		border-left-style: 1em;
+		overflow: hidden;
+	}
+
+	&__link {
+		font-weight: 600;
+		font-size: var(--fz);
+		line-height: 1;
+		color: #a7a8aa;
+		padding: calc(var(--offset) * 1.2);
+		z-index: 1;
+		text-align: center;
+		cursor: pointer;
+	}
+
+	&__bg {
+		background-color: #3b88fb;
+		width: 50%;
+		display: block;
+		height: 100%;
+		left: 0;
+		top: 0;
+		margin-right: auto;
+		position: absolute;
+		border-radius: 1em;
+		transition: transform 0.3s ease;
+	}
+}
+
+.tabs__link.active {
+	color: #fff;
+}
+
+.tabs__about {
+	display: none;
+}
+
+.tabs__about.active {
+	display: flex;
+}
