@@ -81,3 +81,20 @@
 		}
 	}
 }
+
+.about-nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.nav-back {
+	& svg {
+		width: calc(var(--offset) * 1.5);
+		height: calc(var(--offset) * 1.2);
+	}
+
+	&:active {
+		transform: scale(1.1);
+	}
+}

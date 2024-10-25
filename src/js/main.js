@@ -29,4 +29,22 @@ async function init() {
 			console.error("Error loading test module:", error);
 		}
 	}
+
+	if (document.getElementById("go-back")) {
+		try {
+			const { goBack } = await import(/* webpackChunkName: "goBack" */ "./utils/go-back.js");
+			goBack();
+		} catch (error) {
+			console.error("Error loading test module:", error);
+		}
+	}
+
+	if (document.querySelector(".select")) {
+		try {
+			const { select } = await import(/* webpackChunkName: "select" */ "./utils/select.js");
+			select();
+		} catch (error) {
+			console.error("Error loading test module:", error);
+		}
+	}
 }
