@@ -1,11 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	@@include('../components/head.html', { 'title': 'О нас' })
+	@@include('../components/sprite.html')
 </head>
+
 <body>
-<script type="module" src="./js/main.min.js"></script>
+	<div class="container">@@include('../components/header.html')</div>
+
+	<div class="swiper-container links-container">
+		<div class="page-links swiper-wrapper">
+			<a class="swiper-slide active" href="/about.html">О нас</a>
+			<a class="swiper-slide" href="/index.html">Главная</a>
+			<a class="swiper-slide" href="#">Услуги</a>
+			<a class="swiper-slide" href="#">Тарифы</a>
+			<a class="swiper-slide" href="#">Условия</a>
+			<a class="swiper-slide" href="#">Интернет магазины</a>
+			<a class="swiper-slide" href="#">FAQ</a>
+			<a class="swiper-slide" href="#">Сотрудники</a>
+		</div>
+	</div>
+
+	<div class="container">
+
+		<div class="about-image">
+			<picture>
+				<source srcset="./images/advert2.avif">
+				<img src="./images/advert2.jpg" alt="О нас" width="400" height="318">
+			</picture>
+		</div>
+
+		<section class="about">
+
+			<h1>О компании</h1>
+
+			<p><span>YUMECS —</span> доставка посылок грузов и интернет заказов легко
+				и удобно. Услуги осуществляются любым удобным для Вас способом: авиа, авто.Доставляем из России, Турции,
+				США, Кореи, Китая, Малайзии и Японии по всему Узбекистану
+			</p>
+
+			<div class="about__desc">
+				<svg width="21" height="21">
+					<use xlink:href="#success"></use>
+				</svg>
+				<p>Система оповещения</p>
+			</div>
+
+			<div class="about__desc">
+				<svg width="21" height="21">
+					<use xlink:href="#success"></use>
+				</svg>
+				<p>Пунктуальность</p>
+			</div>
+
+			<div class="about__desc">
+				<svg width="21" height="21">
+					<use xlink:href="#success"></use>
+				</svg>
+				<p>Безопасность</p>
+			</div>
+
+			<div class="about__desc">
+				<svg width="21" height="21">
+					<use xlink:href="#success"></use>
+				</svg>
+				<p>Отличный сервис</p>
+			</div>
+
+			<div class="about__desc">
+				<svg width="21" height="21">
+					<use xlink:href="#success"></use>
+				</svg>
+				<p>Таможенно правовое сопровождение</p>
+			</div>
+
+		</section>
+
+		<section class="partners">
+
+			<h3>Партнеры</h3>
+
+			<div class="partners-wrapper">
+				<a href="#">
+					<picture>
+						<source srcset="./images/partners1.avif">
+						<img src="./images/partners1.jpg" alt="наши портнеры" width="137" height="67">
+					</picture>
+				</a>
+				<a href="#">
+					<picture>
+						<source srcset="./images/partners2.avif">
+						<img src="./images/partners2.jpg" alt="наши портнеры" width="140" height="70">
+					</picture>
+				</a>
+				<a href="#">
+					<picture>
+						<source srcset="./images/partners3.avif">
+						<img src="./images/partners3.jpg" alt="наши портнеры" width="137" height="67">
+					</picture>
+				</a>
+				<a href="#">
+					<picture>
+						<source srcset="./images/partners4.avif">
+						<img src="./images/partners4.jpg" alt="наши портнеры" width="140" height="70">
+					</picture>
+				</a>
+			</div>
+		</section>
+
+	</div>
+
+	<script type="module" src="./js/main.min.js"></script>
 </body>
+
 </html>
