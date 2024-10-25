@@ -17,6 +17,24 @@ function goBack() {
   btn.addEventListener("click", function() {
     window.history.back();
   });
+  if (typeof Telegram !== "undefined" && Telegram.WebApp) {
+    let handleBack = function() {
+      if (window.location.search && window.location.pathname !== "/") {
+        history.back();
+      } else {
+        location.href = "/";
+      }
+    };
+    btn.addEventListener("click", () => {
+      Telegram.WebApp.BackButton.onClick(() => {
+        handleBack();
+      });
+      Telegram.WebApp.BackButton.show();
+      Telegram.WebApp.BackButton.click();
+    });
+  } else {
+    console.warn("Telegram WebApp API \u043D\u0435\u0434\u043E\u0441\u0442\u0443\u043F\u0435\u043D.");
+  }
 }
 
 
