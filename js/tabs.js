@@ -15,7 +15,8 @@ function tabs() {
   const tabsLinks = document.querySelectorAll(".tabs__link");
   const tabsContent = document.querySelectorAll("[data-tab-content]");
   const bg = document.querySelector(".tabs__bg");
-  if (!tabsLinks || !tabsContent || !bg) return;
+  const tabsAbout = document.querySelector(".tabs__about-head");
+  if (!tabsLinks || !tabsContent || !bg || !tabsAbout) return;
   tabsLinks.forEach((link, index) => {
     link.addEventListener("click", () => {
       tabsLinks.forEach((btn) => btn.classList.remove("active"));
@@ -28,8 +29,11 @@ function tabs() {
       bg.style.transform = `translateX(${index * 100}%)`;
     });
   });
+  tabsAbout.addEventListener("click", (e) => {
+    e.preventDefault();
+    tabsAbout.classList.toggle("active");
+  });
 }
-;
 
 
 /***/ })
