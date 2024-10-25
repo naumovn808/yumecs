@@ -1406,6 +1406,236 @@ form button[type=reset]:active {
   background-color: #8c98a7;
 }
 
+.profile {
+  padding: calc(max(calc(1.25 * 1vw), 15px) * 1.5);
+  padding: calc(var(--offset) * 1.5);
+  border-radius: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: max(calc(1.25 * 1vw), 15px);
+  gap: var(--offset);
+  background-color: #f1f4f8;
+  margin-bottom: max(calc(1.25 * 1vw), 15px);
+  margin-bottom: var(--offset);
+}
+.profile-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.profile-nav .nav__logo {
+  margin-right: 0;
+}
+.profile-nav .nav__logo span {
+  text-align: right;
+}
+.profile-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.profile-info b {
+  font-weight: 600;
+  font-size: calc(max(calc(1.25 * 1vw), 15px) * 1.5);
+  font-size: calc(var(--offset) * 1.5);
+  line-height: 120%;
+  color: #1f2f43;
+  color: var(--color-text-primary);
+}
+.profile-info span {
+  font-weight: 600;
+  font-size: calc(max(calc(1.25 * 1vw), 15px) * 1.5);
+  font-size: calc(var(--offset) * 1.5);
+  line-height: 120%;
+  color: #3b88fb;
+  color: var(--color-bg-primary);
+}
+.profile-desc {
+  margin: 0.8em 0;
+  padding: max(calc(1.25 * 1vw), 15px);
+  padding: var(--offset);
+  background-color: #fff;
+  background-color: var(--color-default-white);
+  border-radius: 0.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.5em;
+}
+.profile-desc p {
+  margin: 0;
+  font-weight: 400;
+  font-size: max(calc(1 * 1vw), 15px);
+  font-size: var(--fz);
+  line-height: 150%;
+  color: #5d5d5d;
+}
+.profile-stats {
+  padding: max(calc(1.25 * 1vw), 15px);
+  padding: var(--offset);
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: #fff;
+  background-color: var(--color-default-white);
+  border-radius: 0.5em;
+  border-collapse: separate;
+  border-spacing: 0 max(calc(1.25 * 1vw), 15px);
+  border-spacing: 0 var(--offset);
+}
+.profile-stats thead tr {
+  font-weight: 500;
+  font-size: max(calc(1 * 1vw), 15px);
+  font-size: var(--fz);
+  line-height: 110%;
+  color: #5d5d5d;
+}
+.profile-stats thead tr th:first-of-type {
+  text-align: left;
+}
+.profile-stats thead tr th {
+  text-align: right;
+}
+.profile-stats tbody {
+  margin-top: max(calc(1.25 * 1vw), 15px);
+  margin-top: var(--offset);
+}
+
+.stats__desc {
+  font-weight: 600;
+  font-size: max(calc(1.25 * 1vw), 15px);
+  font-size: var(--offset);
+  line-height: 110%;
+  color: #1f2f43;
+  color: var(--color-text-primary);
+}
+
+.stats__count {
+  font-weight: 500;
+  font-size: max(calc(1.25 * 1vw), 15px);
+  font-size: var(--offset);
+  line-height: 110%;
+  text-align: right;
+  color: #3b88fb;
+  color: var(--color-bg-primary);
+}
+
+.data {
+  padding: calc(max(calc(1.25 * 1vw), 15px) * 1.5);
+  padding: calc(var(--offset) * 1.5);
+  border-radius: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: max(calc(1.25 * 1vw), 15px);
+  gap: var(--offset);
+  background-color: #f1f4f8;
+  margin-bottom: calc(max(calc(1.25 * 1vw), 15px) * 4);
+  margin-bottom: var(--offset-grid);
+}
+.data h3 {
+  font-weight: 600;
+  font-size: calc(max(calc(1.25 * 1vw), 15px) * 1.5);
+  font-size: calc(var(--offset) * 1.5);
+  line-height: 1;
+  color: #1f2f43;
+  color: var(--color-text-primary);
+}
+.data p {
+  font-weight: 400;
+  font-size: max(calc(1 * 1vw), 15px);
+  font-size: var(--fz);
+  line-height: 150%;
+  color: #5d5d5d;
+  margin-bottom: 0;
+}
+.data button {
+  border: none;
+  padding: calc(max(calc(1.25 * 1vw), 15px) * 1.4);
+  padding: calc(var(--offset) * 1.4);
+  font-weight: 600;
+  font-size: max(calc(1 * 1vw), 15px);
+  font-size: var(--fz);
+  line-height: 1;
+  color: #fff;
+  color: var(--color-default-white);
+  background-color: #3b88fb;
+  background-color: var(--color-bg-primary);
+  border-radius: 1em;
+  -webkit-transition-property: color, background-color, -webkit-box-shadow;
+  transition-property: color, background-color, -webkit-box-shadow;
+  transition-property: color, background-color, box-shadow;
+  transition-property: color, background-color, box-shadow, -webkit-box-shadow;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  margin-top: 0.5em;
+}
+.data button:active {
+  color: #3b88fb;
+  color: var(--color-bg-primary);
+  background-color: #fff;
+  background-color: var(--color-default-white);
+  -webkit-box-shadow: 0 0 0 0.05em #3b88fb;
+          box-shadow: 0 0 0 0.05em #3b88fb;
+  -webkit-box-shadow: 0 0 0 0.05em var(--color-bg-primary);
+          box-shadow: 0 0 0 0.05em var(--color-bg-primary);
+}
+
+.contact-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.contact-name:first-of-type {
+  margin-top: 1em;
+}
+.contact-name b {
+  font-weight: 600;
+  font-size: max(calc(1 * 1vw), 15px);
+  font-size: var(--fz);
+  line-height: 1;
+  color: #1f2f43;
+  color: var(--color-text-primary);
+}
+.contact-name span {
+  font-weight: 500;
+  font-size: max(calc(1 * 1vw), 15px);
+  font-size: var(--fz);
+  line-height: 110%;
+  text-align: right;
+  color: #5d5d5d;
+}
+
 body {
   background-color: #ffffff;
   color: #3b88fb;
