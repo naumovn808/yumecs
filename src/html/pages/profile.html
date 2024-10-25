@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	@@include('../components/head.html', { 'title': 'Профиль' })
+	@@include('../components/sprite.html')
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<nav class="profile-nav">
+
+				<button id="go-back" class="nav-back">
+					<svg width="24" height="20">
+						<use xlink:href="#arrow-left"></use>
+					</svg>
+				</button>
+
+				<div class="nav__logo">
+					<a href="./profile.html">
+						<span>userName</span>
+						<picture>
+							<source srcset="./images/index/avtr.avif" />
+							<img src="./images/index/avtr.png" alt="avatar" width="43" height="43" />
+						</picture>
+					</a>
+				</div>
+
+
+			</nav>
+
+		</header>
+		<main>
+			<section class="profile">
+				<div class="profile-info">
+					<b>Баллы</b>
+					<span>0</span>
+				</div>
+				<div class="profile-info">
+					<b>Статус</b>
+					<span>Новичек</span>
+				</div>
+				<div class="profile-desc">
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean</p>
+					<p>commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus </p>
+				</div>
+
+				<table class="profile-stats">
+					<thead>
+						<tr>
+							<th>Статус</th>
+							<th>Баллы</th>
+							<th>Заказы</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="stats__desc">Новичок</td>
+							<td class="stats__count">+50</td>
+							<td class="stats__count">0</td>
+						</tr>
+						<tr>
+							<td class="stats__desc">Красавчик</td>
+							<td class="stats__count">+150</td>
+							<td class="stats__count">3</td>
+						</tr>
+						<tr>
+							<td class="stats__desc">Лучший!</td>
+							<td class="stats__count">+250</td>
+							<td class="stats__count">10</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</section>
+
+			<section class="data">
+				<h3>Данные доставки</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean</p>
+				<p>commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus</p>
+
+				<div class="contact-name">
+					<b>ФИО получателя</b>
+					<span>Не указан</span>
+				</div>
+
+				<div class="contact-name">
+					<b>телефон</b>
+					<span>Не указан</span>
+				</div>
+
+				<button class="data-btn">
+					Кнопка
+				</button>
+
+			</section>
+		</main>
+	</div>
+
+
+	<div class="container">
+
+
+
+	</div>
+
+	<script type="module" src="./js/main.min.js"></script>
+</body>
+
+</html>
