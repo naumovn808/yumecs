@@ -1,145 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		@@include('../components/head.html', { 'title': 'О нас' }) @@include('../components/sprite.html')
+	</head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	@@include('../components/head.html', { 'title': 'О нас' })
-	@@include('../components/sprite.html')
-</head>
-
-<body>
-	<div class="container">
-		<header>
-			<nav class="about-nav">
-
-				<button id="go-back" class="nav-back">
-					<svg width="24" height="20">
-						<use xlink:href="#arrow-left"></use>
-					</svg>
-				</button>
-
-
-				<div class="nav__links">
-					<a href="tel:+998555031199" class="nav__phone">
-						<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path
-								d="M12.5559 10.906L12.1009 11.359C12.1009 11.359 11.0179 12.435 8.06288 9.49698C5.10788 6.55898 6.19088 5.48298 6.19088 5.48298L6.47688 5.19698C7.18388 4.49498 7.25088 3.36698 6.63388 2.54298L5.37388 0.859979C4.60988 -0.160021 3.13488 -0.29502 2.25988 0.57498L0.68988 2.13498C0.25688 2.56698 -0.0331206 3.12498 0.00187944 3.74498C0.0918794 5.33198 0.809879 8.74498 4.81388 12.727C9.06088 16.949 13.0459 17.117 14.6749 16.965C15.1909 16.917 15.6389 16.655 15.9999 16.295L17.4199 14.883C18.3799 13.93 18.1099 12.295 16.8819 11.628L14.9719 10.589C14.1659 10.152 13.1859 10.28 12.5559 10.906Z"
-								fill="#3B88FB" />
+	<body>
+		<div class="container">
+			<header>
+				<nav class="about-nav">
+					<button id="go-back" class="nav-back">
+						<svg width="24" height="20">
+							<use xlink:href="#arrow-left"></use>
 						</svg>
-					</a>
+					</button>
 
-					<a href="#" class="nav__bot">@yumecs</a>
+					<div class="nav__links">
+						<a href="tel:+998555031199" class="nav__phone">
+							<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M12.5559 10.906L12.1009 11.359C12.1009 11.359 11.0179 12.435 8.06288 9.49698C5.10788 6.55898 6.19088 5.48298 6.19088 5.48298L6.47688 5.19698C7.18388 4.49498 7.25088 3.36698 6.63388 2.54298L5.37388 0.859979C4.60988 -0.160021 3.13488 -0.29502 2.25988 0.57498L0.68988 2.13498C0.25688 2.56698 -0.0331206 3.12498 0.00187944 3.74498C0.0918794 5.33198 0.809879 8.74498 4.81388 12.727C9.06088 16.949 13.0459 17.117 14.6749 16.965C15.1909 16.917 15.6389 16.655 15.9999 16.295L17.4199 14.883C18.3799 13.93 18.1099 12.295 16.8819 11.628L14.9719 10.589C14.1659 10.152 13.1859 10.28 12.5559 10.906Z"
+									fill="#3B88FB"
+								/>
+							</svg>
+						</a>
+
+						<a href="#" class="nav__bot">@yumecs</a>
+					</div>
+				</nav>
+			</header>
+		</div>
+
+		<div class="swiper-container links-container">
+			<div class="page-links swiper-wrapper">
+				<a class="swiper-slide active" href="./about.html">О нас</a>
+				<a class="swiper-slide" href="./index.html">Главная</a>
+				<a class="swiper-slide" href="./servises.html">Услуги</a>
+				<a class="swiper-slide" href="./tarifs.html">Тарифы</a>
+				<a class="swiper-slide" href="#">Условия</a>
+				<a class="swiper-slide" href="./shop.html">Интернет магазины</a>
+				<a class="swiper-slide" href="#">FAQ</a>
+				<a class="swiper-slide" href="#">Сотрудники</a>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="about-image">
+				<picture>
+					<source srcset="./images/advert2.avif" />
+					<img src="./images/advert2.jpg" alt="О нас" width="400" height="318" />
+				</picture>
+			</div>
+
+			<section class="about">
+				<h1>О компании</h1>
+
+				<p>
+					<span>YUMECS —</span> доставка посылок грузов и интернет заказов легко и удобно. Услуги осуществляются любым удобным для
+					Вас способом: авиа, авто.Доставляем из России, Турции, США, Кореи, Китая, Малайзии и Японии по всему Узбекистану
+				</p>
+
+				<div class="about__desc">
+					<svg width="21" height="21">
+						<use xlink:href="#success"></use>
+					</svg>
+					<p>Система оповещения</p>
 				</div>
 
-			</nav>
+				<div class="about__desc">
+					<svg width="21" height="21">
+						<use xlink:href="#success"></use>
+					</svg>
+					<p>Пунктуальность</p>
+				</div>
 
-		</header>
-	</div>
+				<div class="about__desc">
+					<svg width="21" height="21">
+						<use xlink:href="#success"></use>
+					</svg>
+					<p>Безопасность</p>
+				</div>
 
-	<div class="swiper-container links-container">
-		<div class="page-links swiper-wrapper">
-			<a class="swiper-slide active" href="./about.html">О нас</a>
-			<a class="swiper-slide" href="./index.html">Главная</a>
-			<a class="swiper-slide" href="./servises.html">Услуги</a>
-			<a class="swiper-slide" href="./tarifs.html">Тарифы</a>
-			<a class="swiper-slide" href="#">Условия</a>
-			<a class="swiper-slide" href="#">Интернет магазины</a>
-			<a class="swiper-slide" href="#">FAQ</a>
-			<a class="swiper-slide" href="#">Сотрудники</a>
+				<div class="about__desc">
+					<svg width="21" height="21">
+						<use xlink:href="#success"></use>
+					</svg>
+					<p>Отличный сервис</p>
+				</div>
+
+				<div class="about__desc">
+					<svg width="21" height="21">
+						<use xlink:href="#success"></use>
+					</svg>
+					<p>Таможенно правовое сопровождение</p>
+				</div>
+			</section>
+
+			<section class="partners">
+				<h3>Партнеры</h3>
+
+				<div class="partners-wrapper">
+					<a href="#">
+						<picture>
+							<source srcset="./images/partners1.avif" />
+							<img src="./images/partners1.jpg" alt="наши портнеры" width="137" height="67" />
+						</picture>
+					</a>
+					<a href="#">
+						<picture>
+							<source srcset="./images/partners2.avif" />
+							<img src="./images/partners2.jpg" alt="наши портнеры" width="140" height="70" />
+						</picture>
+					</a>
+					<a href="#">
+						<picture>
+							<source srcset="./images/partners3.avif" />
+							<img src="./images/partners3.jpg" alt="наши портнеры" width="137" height="67" />
+						</picture>
+					</a>
+					<a href="#">
+						<picture>
+							<source srcset="./images/partners4.avif" />
+							<img src="./images/partners4.jpg" alt="наши портнеры" width="140" height="70" />
+						</picture>
+					</a>
+				</div>
+			</section>
 		</div>
-	</div>
 
-	<div class="container">
-
-		<div class="about-image">
-			<picture>
-				<source srcset="./images/advert2.avif">
-				<img src="./images/advert2.jpg" alt="О нас" width="400" height="318">
-			</picture>
-		</div>
-
-		<section class="about">
-
-			<h1>О компании</h1>
-
-			<p><span>YUMECS —</span> доставка посылок грузов и интернет заказов легко
-				и удобно. Услуги осуществляются любым удобным для Вас способом: авиа, авто.Доставляем из России, Турции,
-				США, Кореи, Китая, Малайзии и Японии по всему Узбекистану
-			</p>
-
-			<div class="about__desc">
-				<svg width="21" height="21">
-					<use xlink:href="#success"></use>
-				</svg>
-				<p>Система оповещения</p>
-			</div>
-
-			<div class="about__desc">
-				<svg width="21" height="21">
-					<use xlink:href="#success"></use>
-				</svg>
-				<p>Пунктуальность</p>
-			</div>
-
-			<div class="about__desc">
-				<svg width="21" height="21">
-					<use xlink:href="#success"></use>
-				</svg>
-				<p>Безопасность</p>
-			</div>
-
-			<div class="about__desc">
-				<svg width="21" height="21">
-					<use xlink:href="#success"></use>
-				</svg>
-				<p>Отличный сервис</p>
-			</div>
-
-			<div class="about__desc">
-				<svg width="21" height="21">
-					<use xlink:href="#success"></use>
-				</svg>
-				<p>Таможенно правовое сопровождение</p>
-			</div>
-
-		</section>
-
-		<section class="partners">
-
-			<h3>Партнеры</h3>
-
-			<div class="partners-wrapper">
-				<a href="#">
-					<picture>
-						<source srcset="./images/partners1.avif">
-						<img src="./images/partners1.jpg" alt="наши портнеры" width="137" height="67">
-					</picture>
-				</a>
-				<a href="#">
-					<picture>
-						<source srcset="./images/partners2.avif">
-						<img src="./images/partners2.jpg" alt="наши портнеры" width="140" height="70">
-					</picture>
-				</a>
-				<a href="#">
-					<picture>
-						<source srcset="./images/partners3.avif">
-						<img src="./images/partners3.jpg" alt="наши портнеры" width="137" height="67">
-					</picture>
-				</a>
-				<a href="#">
-					<picture>
-						<source srcset="./images/partners4.avif">
-						<img src="./images/partners4.jpg" alt="наши портнеры" width="140" height="70">
-					</picture>
-				</a>
-			</div>
-		</section>
-
-	</div>
-
-	<script type="module" src="./js/main.min.js"></script>
-</body>
-
+		<script type="module" src="./js/main.min.js"></script>
+	</body>
 </html>
