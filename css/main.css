@@ -2021,6 +2021,26 @@ form button[type=reset]:active {
   margin: 0;
 }
 
+.faq-accordeon h3 {
+  font-size: calc(max(calc(1 * 1vw), 15px) * 1.2);
+  font-size: calc(var(--fz) * 1.2);
+}
+.faq-accordeon svg {
+  width: calc(max(calc(1.25 * 1vw), 15px) * 1.3);
+  width: calc(var(--offset) * 1.3);
+}
+.faq-wrapper p {
+  font-weight: 500;
+  font-size: max(calc(1 * 1vw), 15px);
+  font-size: var(--fz);
+  line-height: 150%;
+  color: #5d5d5d;
+  margin: 0;
+}
+.faq-wrapper p:first-of-type {
+  margin-top: 1em;
+}
+
 .shop {
   margin-bottom: calc(max(calc(1.25 * 1vw), 15px) * 4);
   margin-bottom: var(--offset-grid);
