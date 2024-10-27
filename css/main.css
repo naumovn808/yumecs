@@ -2021,6 +2021,48 @@ form button[type=reset]:active {
   margin: 0;
 }
 
+.shop {
+  margin-bottom: calc(max(calc(1.25 * 1vw), 15px) * 4);
+  margin-bottom: var(--offset-grid);
+}
+.shop h1 {
+  font-weight: 600;
+  font-size: calc(max(calc(1 * 1vw), 15px) * 1.5);
+  font-size: calc(var(--fz) * 1.5);
+  line-height: 120%;
+  text-transform: capitalize;
+  color: #1f2f43;
+  color: var(--color-text-primary);
+  margin-bottom: 1em;
+}
+.shop-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: calc(max(calc(1.25 * 1vw), 15px) * 2.5);
+  gap: calc(var(--offset) * 2.5);
+}
+.shop-link {
+  display: block;
+  width: calc(max(calc(1.25 * 1vw), 15px) * 6);
+  width: calc(var(--offset) * 6);
+  height: calc(max(calc(1.25 * 1vw), 15px) * 6);
+  height: calc(var(--offset) * 6);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.shop-link img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
