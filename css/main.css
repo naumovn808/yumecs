@@ -1485,6 +1485,123 @@ form button[type=reset]:active {
   background-color: #8c98a7;
 }
 
+.tarifs-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: max(calc(1.25 * 1vw), 15px);
+  gap: var(--offset);
+  margin-bottom: calc(max(calc(1.25 * 1vw), 15px) * 4);
+  margin-bottom: var(--offset-grid);
+}
+.tarifs-inner-item {
+  padding-top: calc(max(calc(1.25 * 1vw), 15px) * 1.5);
+  padding-top: calc(var(--offset) * 1.5);
+  border-radius: 1em;
+  background-color: #f1f4f8;
+  border: 0.2em solid #f1f4f8;
+  margin-bottom: max(calc(1.25 * 1vw), 15px);
+  margin-bottom: var(--offset);
+}
+.tarifs-inner-item h3 {
+  font-weight: 600;
+  font-size: calc(max(calc(1.25 * 1vw), 15px) * 1.5);
+  font-size: calc(var(--offset) * 1.5);
+  line-height: 120%;
+  text-align: center;
+  color: #1f2f43;
+  color: var(--color-text-primary);
+  margin-top: 0;
+  margin-bottom: calc(max(calc(1.25 * 1vw), 15px) * 1.5);
+  margin-bottom: calc(var(--offset) * 1.5);
+}
+.tarifs-inner-card {
+  background-color: #fff;
+  background-color: var(--color-default-white);
+  padding: calc(max(calc(1.25 * 1vw), 15px) * 1.5);
+  padding: calc(var(--offset) * 1.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+.tarifs-inner-card p {
+  font-weight: 400;
+  font-size: max(calc(1 * 1vw), 15px);
+  font-size: var(--fz);
+  line-height: 180%;
+  text-align: center;
+  color: #5d5d5d;
+  margin: 0;
+}
+.tarifs-inner-card b {
+  font-weight: 600;
+  font-size: max(calc(1 * 1vw), 15px);
+  font-size: var(--fz);
+  line-height: 150%;
+  text-align: center;
+  color: #3b88fb;
+  color: var(--color-bg-primary);
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.tarifs-inner-card a {
+  font-weight: 500;
+  font-size: max(calc(1 * 1vw), 15px);
+  font-size: var(--fz);
+  line-height: 120%;
+  text-transform: capitalize;
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: max(calc(1.25 * 1vw), 15px);
+  padding: var(--offset);
+  border-radius: 1em;
+  border: 1px solid #3b88fb;
+  border: 1px solid var(--color-bg-primary);
+}
+.tarifs-inner-card a:active {
+  background-color: #3b88fb;
+  background-color: var(--color-bg-primary);
+  color: #fff;
+  color: var(--color-default-white);
+}
+.tarifs-inner-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+.tarifs-inner-head b {
+  font-weight: 600;
+  font-size: calc(max(calc(1 * 1vw), 15px) * 1.5);
+  font-size: calc(var(--fz) * 1.5);
+  line-height: 120%;
+  color: #1f2f43;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+.tarifs-inner-head span {
+  font-weight: 600;
+  font-size: calc(max(calc(1 * 1vw), 15px) * 1.5);
+  font-size: calc(var(--fz) * 1.5);
+  line-height: 120%;
+  color: #a7a8aa;
+}
+
 .profile {
   padding: calc(max(calc(1.25 * 1vw), 15px) * 1.5);
   padding: calc(var(--offset) * 1.5);
