@@ -8,6 +8,11 @@
 @import "./components/about.scss";
 @import "./components/tarifs.scss";
 @import "./components/profile.scss";
+@import "./components/servises.scss";
+
+* {
+	box-sizing: border-box;
+}
 
 body {
 	background-color: #ffffff;

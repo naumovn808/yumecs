@@ -47,4 +47,13 @@ async function init() {
 			console.error("Error loading test module:", error);
 		}
 	}
+
+	if (document.querySelector("[data-accordion-header]") && document.querySelector("[data-accordion-content]")) {
+		try {
+			const { initAccordion } = await import(/* webpackChunkName: "initAccordion" */ "./utils/accordeon.js");
+			initAccordion();
+		} catch (error) {
+			console.error("Error loading test module:", error);
+		}
+	}
 }
