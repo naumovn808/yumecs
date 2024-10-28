@@ -74,4 +74,13 @@ async function init() {
 			console.error("Error loading test module:", error);
 		}
 	}
+
+	if (document.querySelector('input[type="number"]')) {
+		try {
+			const { inputNumbers } = await import(/* webpackChunkName: "inputNumbers" */ "./utils/form.js");
+			inputNumbers();
+		} catch (error) {
+			console.error("Error loading test module:", error);
+		}
+	}
 }
