@@ -56,4 +56,22 @@ async function init() {
 			console.error("Error loading test module:", error);
 		}
 	}
+
+	if (document.querySelector(".nav-link-dropdown")) {
+		try {
+			const { details } = await import(/* webpackChunkName: "details" */ "./utils/details.js");
+			details();
+		} catch (error) {
+			console.error("Error loading test module:", error);
+		}
+	}
+
+	if (document.querySelector(".dropdown")) {
+		try {
+			const { dropdown } = await import(/* webpackChunkName: "dropdown" */ "./utils/dropdown-menu.js");
+			dropdown();
+		} catch (error) {
+			console.error("Error loading test module:", error);
+		}
+	}
 }

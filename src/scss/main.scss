@@ -11,6 +11,11 @@
 @import "./components/servises.scss";
 @import "./components/shop.scss";
 @import "./components/employees.scss";
+@import "./components/conditions.scss";
+@import "./components/not-accepted.scss";
+@import "./components/dangerous.scss";
+@import "./components/duty.scss";
+@import "./components/offer.scss";
 
 * {
 	box-sizing: border-box;
@@ -24,6 +29,14 @@ body {
 	touch-action: manipulation;
 	user-select: auto;
 	font-size: var(--fz);
+	max-width: 780px;
+	margin: 0 auto;
+	position: relative;
+	min-height: 100vh;
+}
+
+header {
+	position: relative;
 }
 
 :root {

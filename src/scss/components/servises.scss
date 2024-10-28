@@ -22,8 +22,8 @@
 		margin-bottom: 0.5em;
 
 		& svg {
-			width: calc(var(--offset) * 1.6);
-			height: calc(var(--offset) * 1.6);
+			min-width: calc(var(--offset) * 1.6);
+			min-height: calc(var(--offset) * 1.6);
 			fill: var(--color-text-primary);
 			transition-property: transform, fill;
 			transition-duration: 0.5s;

@@ -1,0 +1,125 @@
+.nav-link-dropdown {
+	min-width: fit-content;
+	width: 100%;
+	font-weight: 500;
+	font-size: calc(var(--fz) * 1.2);
+	line-height: 120%;
+	text-transform: capitalize;
+	text-align: center;
+	color: var(--color-text-primary);
+	padding: calc(var(--offset) * 0.8) calc(var(--offset) * 1.2);
+	border-radius: calc(var(--offset) * 1.5);
+	background-color: #f1f4f8;
+	margin-left: var(--offset);
+	display: flex;
+	justify-content: space-between;
+	gap: 0.8em;
+
+	& svg {
+		fill: var(--color-text-primary);
+		transition-property: transform, fill;
+		transition-duration: 0.5s;
+	}
+}
+
+.nav-link-dropdown.active {
+	background-color: var(--color-bg-primary);
+	color: var(--color-default-white);
+
+	& svg {
+		fill: var(--color-default-white);
+	}
+}
+
+.nav-link-dropdown[open] {
+	background-color: var(--color-bg-primary);
+	color: var(--color-default-white);
+}
+
+.nav-link-dropdown[open] svg {
+	transform: rotate(180deg);
+	background-color: var(--color-bg-primary);
+	fill: var(--color-default-white);
+}
+
+.dropdown-menu {
+	width: 100%;
+	padding: 0 var(--offset);
+	position: absolute;
+	top: calc(var(--offset) * 11);
+	left: 50%;
+	transform: translate(-50%, 0);
+	opacity: 0;
+	z-index: -1;
+	transition-property: opacity;
+	transition-duration: 0.3s;
+}
+
+.dropdown {
+	padding: 0;
+	width: 100%;
+	min-height: fit-content;
+	max-width: 750px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: calc(var(--offset) * 1.5);
+	padding: var(--offset);
+	border-radius: 1em;
+	background-color: #f1f4f8;
+
+	& li a {
+		color: var(--color-text-primary);
+		background-color: transparent;
+		text-align: left;
+		margin-left: 0;
+		padding: 0;
+		font-size: calc(var(--fz) * 1.2);
+	}
+}
+
+.dropdown-item {
+	text-align: left;
+}
+
+.nav-dropdown {
+	outline: none;
+	text-wrap: balance;
+	user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	touch-action: manipulation;
+	outline: none;
+}
+
+.dropdown-item a {
+	&:active {
+		background-color: transparent;
+		color: #526681;
+	}
+}
+
+.dropdown-menu.active {
+	opacity: 1;
+	z-index: 1;
+}
+
+.page-links {
+	& .page-link {
+		display: block;
+		min-width: fit-content;
+		width: 100%;
+		font-weight: 500;
+		font-size: calc(var(--fz) * 1.2);
+		line-height: 120%;
+		text-align: center;
+		color: var(--color-bg-primary);
+		padding: calc(var(--offset) * 0.8) calc(var(--offset) * 1.2);
+		border-radius: calc(var(--offset) * 1.5);
+		background-color: var(--color-default-white);
+		margin-left: var(--offset);
+		border: 0.01em solid var(--color-bg-primary);
+		height: auto;
+	}
+}

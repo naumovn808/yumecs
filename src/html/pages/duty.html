@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	@@include('../components/head.html', { 'title': 'Тарифы' }) @@include('../components/sprite.html')
+	@@include('../components/head.html', { 'title': 'опасные грузы' }) @@include('../components/sprite.html')
 </head>
 
 <body>
@@ -34,18 +34,20 @@
 
 	<div class="swiper-container links-container">
 		<div class="page-links swiper-wrapper">
-			<a class="swiper-slide" href="./tarifs.html">Тарифы</a>
-			<a class="swiper-slide active" href="./about.html">О нас</a>
-			<a class="swiper-slide" href="./index.html">Главная</a>
-			<a class="swiper-slide" href="./servises.html">Услуги</a>
-			<details class="nav-link-dropdown swiper-slide">
+			<details class="nav-link-dropdown swiper-slide active">
 				<summary class="nav-dropdown">
 					Условия
 					<svg width="17" height="9">
 						<use xlink:href="#accordeon"></use>
 					</svg>
 				</summary>
+
 			</details>
+			<span class="page-link">Товары подлежащие...</span>
+			<a class="swiper-slide" href="./about.html">О нас</a>
+			<a class="swiper-slide" href="./index.html">Главная</a>
+			<a class="swiper-slide" href="./servises.html">Услуги</a>
+			<a class="swiper-slide" href="./tarifs.html">Тарифы</a>
 
 			<a class="swiper-slide" href="./shop.html">Интернет магазины</a>
 			<a class="swiper-slide" href="./faq.html">FAQ</a>
@@ -77,45 +79,34 @@
 
 
 	<div class="container">
-		<section class="tarifs-inner">
-			<div class="tarifs-inner-item">
-				<h3>Авто</h3>
-				<div class="tarifs-inner-card">
-					<div class="tarifs-inner-head">
-						<b>от $6</b>
-						<span>/ за кг</span>
-					</div>
-					<p>От офиса до офиса</p>
-					<p>Минимально оплачиваемый вес – 5кг</p>
-					<p>Сроки доставки — от 10 рабочих дней</p>
-					<p>Не считая дня прибытия на склад</p>
 
-					<b>
-						Авто перевозки: Книги, Б/у вещи личного характера. Тариф может меняться от вида груза для
-						уточнения написать
-						менеджеру
-					</b>
-
-					<a href="#">Свяжитесь с менеджером</a>
-				</div>
+		<section class="servises duty" data-accordion>
+			<div class="servises-accordeon" data-accordion-header>
+				<h3>Товары подлежащие вывозной пошлине</h3>
+				<svg width="17" height="9">
+					<use xlink:href="#accordeon"></use>
+				</svg>
 			</div>
-			<div class="tarifs-inner-item">
-				<h3>Базовый</h3>
-				<div class="tarifs-inner-card">
-					<div class="tarifs-inner-head">
-						<b>$7</b>
-						<span>/ за кг</span>
-					</div>
-					<p>Минимальный оплачиваемый вес – 2кг</p>
-					<p>Сроки доставки — от 5 рабочих дней</p>
-					<p>Не считая дня прибытия на склад</p>
 
-					<b>Этот тариф для Интернет заказов Связаться с менеджером </b>
-
-					<a href="#">Свяжитесь с менеджером</a>
+			<div class="servises-wrapper duty-cards" data-accordion-content>
+				<div class="duty-card">
+					<b>01</b>
+					<span>Живые животные</span>
+				</div>
+				<div class="duty-card">
+					<b>02</b>
+					<span>Рыба и ракообразные, моллюски
+						и прочие водные беспозвоночные</span>
+				</div>
+				<div class="duty-card">
+					<b>03</b>
+					<span>Молочная продукция; яйца птиц; мед натуральный; пищевые продукты животного происхождения, в
+						другом месте не поименованные или не включенные
+					</span>
 				</div>
 			</div>
 		</section>
+
 	</div>
 
 	<script type="module" src="./js/main.min.js"></script>
