@@ -25,14 +25,13 @@
 	<meta name="theme-color" content="#0a0428">
 	<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
 
-	<title>Профиль</title>
+	<title>О нас</title>
 
 	<link rel="preload" href="./fonts/Poppins-Medium.woff" as="font" type="font/woff" crossorigin="anonymous"><link rel="preload" href="./fonts/Poppins-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="preload" href="./fonts/Poppins-Regular.woff" as="font" type="font/woff" crossorigin="anonymous"><link rel="preload" href="./fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="preload" href="./fonts/Poppins-SemiBold.woff" as="font" type="font/woff" crossorigin="anonymous"><link rel="preload" href="./fonts/Poppins-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
 	<link rel="stylesheet" href="./css/main.min.css">
 </head>
-
-	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none"><symbol id="accordeon" viewBox="0 0 18 10">
+ <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none"><symbol id="accordeon" viewBox="0 0 18 10">
 <path clip-rule="evenodd" d="M0.96967 0.46967C1.26256 0.176777 1.73744 0.176777 2.03033 0.46967L9 7.43934L15.9697 0.46967C16.2626 0.176777 16.7374 0.176777 17.0303 0.46967C17.3232 0.762563 17.3232 1.23744 17.0303 1.53033L9.53033 9.03033C9.23744 9.32322 8.76256 9.32322 8.46967 9.03033L0.96967 1.53033C0.676777 1.23744 0.676777 0.762563 0.96967 0.46967Z"/>
 </symbol><symbol id="arrow-left" viewBox="0 0 24 20"><g fill="none">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M1.49012e-08 10C1.49012e-08 9.44771 0.447715 9 1 9H23C23.5523 9 24 9.44771 24 10C24 10.5523 23.5523 11 23 11H1C0.447715 11 1.49012e-08 10.5523 1.49012e-08 10Z" fill="black"/>
@@ -63,99 +62,152 @@
 <body>
 	<div class="container">
 		<header>
-			<nav class="profile-nav">
-
+			<nav class="about-nav">
 				<button id="go-back" class="nav-back">
 					<svg width="24" height="20">
 						<use xlink:href="#arrow-left"></use>
 					</svg>
 				</button>
 
-				<div class="nav__logo">
-					<a href="./profile.html">
-						<span>userName</span>
-						<picture>
-							<source srcset="./images/index/avtr.avif">
-							<img src="./images/index/avtr.png" alt="avatar" width="43" height="43">
-						</picture>
+				<div class="nav__links">
+					<a href="tel:+998555031199" class="nav__phone">
+						<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12.5559 10.906L12.1009 11.359C12.1009 11.359 11.0179 12.435 8.06288 9.49698C5.10788 6.55898 6.19088 5.48298 6.19088 5.48298L6.47688 5.19698C7.18388 4.49498 7.25088 3.36698 6.63388 2.54298L5.37388 0.859979C4.60988 -0.160021 3.13488 -0.29502 2.25988 0.57498L0.68988 2.13498C0.25688 2.56698 -0.0331206 3.12498 0.00187944 3.74498C0.0918794 5.33198 0.809879 8.74498 4.81388 12.727C9.06088 16.949 13.0459 17.117 14.6749 16.965C15.1909 16.917 15.6389 16.655 15.9999 16.295L17.4199 14.883C18.3799 13.93 18.1099 12.295 16.8819 11.628L14.9719 10.589C14.1659 10.152 13.1859 10.28 12.5559 10.906Z" fill="#3B88FB"/>
+						</svg>
 					</a>
+
+					<a href="#" class="nav__bot">@yumecs</a>
 				</div>
-
-
 			</nav>
-
 		</header>
-		<main>
-			<section class="profile">
-				<div class="profile-info">
-					<b>Баллы</b>
-					<span>0</span>
-				</div>
-				<div class="profile-info">
-					<b>Статус</b>
-					<span>Новичек</span>
-				</div>
-				<div class="profile-desc">
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean</p>
-					<p>commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus </p>
-				</div>
-
-				<table class="profile-stats">
-					<thead>
-						<tr>
-							<th>Статус</th>
-							<th>Баллы</th>
-							<th>Заказы</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="stats__desc">Новичок</td>
-							<td class="stats__count">+50</td>
-							<td class="stats__count">0</td>
-						</tr>
-						<tr>
-							<td class="stats__desc">Красавчик</td>
-							<td class="stats__count">+150</td>
-							<td class="stats__count">3</td>
-						</tr>
-						<tr>
-							<td class="stats__desc">Лучший!</td>
-							<td class="stats__count">+250</td>
-							<td class="stats__count">10</td>
-						</tr>
-					</tbody>
-				</table>
-
-			</section>
-
-			<section class="data">
-				<h3>Данные доставки</h3>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean</p>
-				<p>commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus</p>
-
-				<div class="contact-name">
-					<b>ФИО получателя</b>
-					<span>Не указан</span>
-				</div>
-
-				<div class="contact-name">
-					<b>телефон</b>
-					<span>Не указан</span>
-				</div>
-
-				<button class="data-btn">
-					Кнопка
-				</button>
-
-			</section>
-		</main>
 	</div>
 
+	<div class="links-container swiper-container">
+		<div class="page-links swiper-wrapper">
+			<a class="swiper-slide active" href="./employees.html">Сотрудники</a>
+			<a class="swiper-slide" href="./tarifs.html">Тарифы</a>
+			<a class="swiper-slide" href="./servises.html">Услуги</a>
+			<a class="swiper-slide" href="./about.html">О нас</a>
+			<a class="swiper-slide" href="./index.html">Главная</a>
+			<a class="swiper-slide" href="#">Условия</a>
+			<a class="swiper-slide" href="./shop.html">Интернет магазины</a>
+			<a class="swiper-slide" href="./faq.html">FAQ</a>
+		</div>
+	</div>
 
 	<div class="container">
 
+		<section class="employees">
 
+			<div class="employee">
+
+				<div class="employee__img">
+					<picture>
+						<source srcset="./images/emp1.avif">
+						<img src="./images/emp1.png" alt="employee" width="167" height="167">
+					</picture>
+				</div>
+
+				<div class="employee__link">
+
+					<a href="#" class="employee-ref wp-link">
+						<svg width="20" height="20">
+							<use xlink:href="#wp"></use>
+						</svg>
+					</a>
+
+					<a href="#" class="employee-ref tg-link">
+						<svg width="20" height="20">
+							<use xlink:href="#tg"></use>
+						</svg>
+					</a>
+
+				</div>
+
+			</div>
+
+			<div class="employee">
+
+				<div class="employee__img">
+					<picture>
+						<source srcset="./images/emp2.avif">
+						<img src="./images/emp2.png" alt="employee" width="167" height="167">
+					</picture>
+				</div>
+
+				<div class="employee__link">
+
+					<a href="#" class="employee-ref wp-link">
+						<svg width="20" height="20">
+							<use xlink:href="#wp"></use>
+						</svg>
+					</a>
+
+					<a href="#" class="employee-ref tg-link">
+						<svg width="20" height="20">
+							<use xlink:href="#tg"></use>
+						</svg>
+					</a>
+
+				</div>
+
+			</div>
+
+			<div class="employee">
+
+				<div class="employee__img">
+					<picture>
+						<source srcset="./images/emp3.avif">
+						<img src="./images/emp3.png" alt="employee" width="167" height="167">
+					</picture>
+				</div>
+
+				<div class="employee__link">
+
+					<a href="#" class="employee-ref wp-link">
+						<svg width="20" height="20">
+							<use xlink:href="#wp"></use>
+						</svg>
+					</a>
+
+					<a href="#" class="employee-ref tg-link">
+						<svg width="20" height="20">
+							<use xlink:href="#tg"></use>
+						</svg>
+					</a>
+
+				</div>
+
+			</div>
+
+
+			<div class="employee">
+
+				<div class="employee__img">
+					<picture>
+						<source srcset="./images/emp4.avif">
+						<img src="./images/emp4.png" alt="employee" width="167" height="167">
+					</picture>
+				</div>
+
+				<div class="employee__link">
+
+					<a href="#" class="employee-ref wp-link">
+						<svg width="20" height="20">
+							<use xlink:href="#wp"></use>
+						</svg>
+					</a>
+
+					<a href="#" class="employee-ref tg-link">
+						<svg width="20" height="20">
+							<use xlink:href="#tg"></use>
+						</svg>
+					</a>
+
+				</div>
+
+			</div>
+		</section>
 
 	</div>
 
