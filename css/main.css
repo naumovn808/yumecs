@@ -838,6 +838,7 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 1em;
 }
 .tabs__about-id:first-of-type {
   margin-top: 0.5em;
@@ -1868,6 +1869,7 @@ form button[type=reset]:active {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-bottom: 0.5em;
+  gap: 1em;
 }
 .servises-accordeon svg {
   min-width: calc(max(calc(1.25 * 1vw), 15px) * 1.6);
@@ -2813,11 +2815,11 @@ h4,
 h5,
 h6 {
   margin: 0;
-  text-wrap: balance;
   -webkit-user-select: text;
      -moz-user-select: text;
       -ms-user-select: text;
           user-select: text;
+  word-break: break-word;
 }
 
 p {
@@ -2825,7 +2827,7 @@ p {
      -moz-user-select: text;
       -ms-user-select: text;
           user-select: text;
-  text-wrap: balance;
+  word-break: break-word;
 }
 
 details {
