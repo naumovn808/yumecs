@@ -107,13 +107,13 @@ h4,
 h5,
 h6 {
 	margin: 0;
-	text-wrap: balance;
 	user-select: text;
+	word-break: break-word;
 }
 
 p {
 	user-select: text;
-	text-wrap: balance;
+	word-break: break-word;
 }
 
 details {
