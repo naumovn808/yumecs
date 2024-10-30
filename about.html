@@ -220,6 +220,14 @@
 		</section>
 	</div>
 
+	<script>
+		document.getElementById('.nav__phone').addEventListener('click', function () {
+			setTimeout(() => {
+				window.location.href = 'tel:+998555031199';
+			}, 100); // Небольшая задержка перед переходом
+		});
+		window.Telegram.WebApp.ready(); window.Telegram.WebApp.expand();
+	</script>
 	<script type="module" src="./js/main.min.js"></script>
 </body>
 
