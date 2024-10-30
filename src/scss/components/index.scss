@@ -25,14 +25,13 @@ nav {
 			width: calc(var(--offset) * 2);
 			height: calc(var(--offset) * 2);
 
-			
+
 		}
 
 		& span {
 			font-weight: 500;
 			font-size: calc(var(--fz) * 1.1);
 			line-height: 120%;
-			text-transform: capitalize;
 			text-align: left;
 			color: var(--color-bg-primary);
 			max-width: 150px;

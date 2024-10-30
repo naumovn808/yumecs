@@ -69,7 +69,6 @@
 		font-weight: 600;
 		font-size: calc(var(--fz) * 1.1);
 		line-height: 120%;
-		text-transform: capitalize;
 		color: var(-color-text-primary);
 	}
 
@@ -83,7 +82,7 @@
 
 	p {
 		font-weight: 400;
-		font-size: calc(var(--fz) * 1.1);
+		font-size: var(--fz);
 		line-height: 120%;
 		color: #5d5d5d;
 		grid-column: span 2;
@@ -113,7 +112,6 @@
 		font-size: calc(var(--fz) * 1.1);
 		line-height: 1;
 		margin: 0;
-		text-transform: capitalize;
 		color: var(--color-text-primary);
 	}
 
