@@ -19,7 +19,18 @@ function scrollLinks() {
     slidesPerGroup: 1,
     centeredSlides: false,
     loop: false,
-    grabCursor: true
+    grabCursor: true,
+    watchSlidesProgress: true,
+    on: {
+      init: function() {
+        const activeSlide = Array.from(this.slides).findIndex(
+          (slide) => slide.classList.contains("active")
+        );
+        if (activeSlide !== -1) {
+          this.slideTo(activeSlide, 0);
+        }
+      }
+    }
   });
 }
 
