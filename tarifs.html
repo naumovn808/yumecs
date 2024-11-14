@@ -243,12 +243,11 @@
 
 
 		function getKeyboardHeight() {
-    if (window.Telegram.WebApp.isExpanded) {
-        return window.visualViewport ? window.visualViewport.height : window.innerHeight;
-    }
-    return 0;
-}
-
+			if (window.Telegram.WebApp.isExpanded) {
+				return window.visualViewport ? window.visualViewport.height : window.innerHeight;
+			}
+			return 0;
+		}
 
 		function adjustFormMargin(input) {
 			setTimeout(() => {
@@ -268,16 +267,10 @@
 					const inputTop = inputRect.top;
 					const visibleTop = window.pageYOffset || document.documentElement.scrollTop;
 
-					if (inputTop < visibleTop) {
-
-						window.scrollTo({
-							top: visibleTop + (inputTop - visibleTop),
-							behavior: 'smooth'
-						});
-					}
 
 				} else {
 					form.style.marginBottom = "";
+
 				}
 			}, 200);
 		}
@@ -288,6 +281,7 @@
 			input.addEventListener('focus', () => adjustFormMargin(input));
 			input.addEventListener('blur', () => adjustFormMargin(input));
 		});
+
 
 
 
