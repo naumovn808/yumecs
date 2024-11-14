@@ -238,65 +238,56 @@
 	</div>
 
 
-	<script>
+		<script>
 		window.Telegram.WebApp.ready();
 		window.Telegram.WebApp.expand();
 
 
 		function adjustFormMargin(input) {
-  setTimeout(() => {
 
-    const keyboardHeight = window.Telegram.WebApp.keyboardHeight || 0;
+			setTimeout(() => {
 
-    if (keyboardHeight > 0) {  // Only if the keyboard is shown
-
-       form.style.marginBottom = keyboardHeight + "px";
-
-       scrollToInput(input);
+				const keyboardHeight = Telegram.WebApp.keyboardHeight || 0;
 
 
-    } else {
-      form.style.marginBottom = "";
-    }
-  }, 200);
-}
+				if (keyboardHeight > 0) {
+					form.style.marginBottom = keyboardHeight + "px";
+					scrollToInput(input, keyboardHeight);
+
+				} else {
+					form.style.marginBottom = "";
+				}
+			}, 200);
+		}
+
+		function scrollToInput(input, keyboardHeight) {
+
+			const inputRect = input.getBoundingClientRect();
+			const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
 
 
+			const inputBottom = inputRect.bottom;
+			const targetInputBottom = viewportHeight - keyboardHeight - 10;
 
-function scrollToInput(input) {
+			if (inputBottom > targetInputBottom) {
+				const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+				const scrollOffset = inputBottom - targetInputBottom + scrollTop;
 
-   const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-   const keyboardHeight = window.innerHeight - viewportHeight ;
+				window.scrollTo({
+					top: scrollOffset,
+					behavior: 'smooth'
 
-   const inputRect = input.getBoundingClientRect();
-   const inputBottom = inputRect.bottom;
-   const targetInputBottom = viewportHeight - 10; 
+				});
+			}
+		}
 
+		const form = document.getElementById('calculation');
+		const inputs = document.querySelectorAll('#calculation input');
+		inputs.forEach(input => {
+			input.addEventListener('focus', () => adjustFormMargin(input));
+			input.addEventListener('blur', () => adjustFormMargin(input));
+		});
 
-   if (inputBottom > targetInputBottom) {
-
-       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-       const scrollOffset = inputBottom - targetInputBottom + scrollTop;
-
-
-
-       window.scrollTo({
-           top: scrollOffset,
-           behavior: 'smooth'
-       });
-   }
-}
-
-
-
-
-const form = document.getElementById('calculation');
-const inputs = document.querySelectorAll('#calculation input');
-
-inputs.forEach(input => {
-  input.addEventListener('focus', () => adjustFormMargin(input));
-  input.addEventListener('blur', () => adjustFormMargin(input));
-});
 	</script>
 
 	<script type="module" src="./js/main.min.js"></script>
