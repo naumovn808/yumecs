@@ -88,7 +88,7 @@
 
 		</header>
 	</div>
-	
+
 	<div class="links-container swiper-container">
 		<div class="page-links swiper-wrapper">
 			<a class="swiper-slide" href="./index.html">Главная</a>
@@ -240,6 +240,49 @@
 
 	<script>
 		window.Telegram.WebApp.ready(); window.Telegram.WebApp.expand();
+
+
+		function getKeyboardHeight() {
+			if (window.Telegram.WebApp.isExpanded) {
+				return window.visualViewport ? window.visualViewport.height : window.innerHeight;
+			}
+			return 0;
+		}
+
+		function scrollToInput(input) {
+			setTimeout(() => {
+				const inputRect = input.getBoundingClientRect();
+				const windowHeight = getKeyboardHeight();
+				const keyboardHeight = window.Telegram.WebApp.keyboardHeight || 0;
+				const scrollTop = window.pageYOffset || document.documentElement.scrollTop; // Текущая позиция прокрутки
+
+				// Рассчитываем желаемую позицию верха инпута
+				const targetInputTop = windowHeight - keyboardHeight - inputRect.height - 10; // 10 - отступ от клавиатуры
+
+				// Разница между текущей и желаемой позицией
+				const scrollOffset = inputRect.top - targetInputTop + scrollTop;
+
+
+				if (inputRect.bottom > windowHeight - keyboardHeight) {  // Проверяем перекрытие с учетом высоты клавиатуры
+
+					window.scrollTo({
+						top: scrollOffset > scrollTop ? scrollOffset : scrollTop, // Прокручиваем, только если нужно
+						behavior: 'smooth'
+					});
+				}
+
+			}, 200);
+		}
+
+		const inputs = document.querySelectorAll('#calculation input');
+		inputs.forEach(input => {
+			input.addEventListener('focus', () => scrollToInput(input));
+			input.addEventListener('blur', () => {
+				// window.scrollTo({ top: 0, behavior: 'smooth' }); // Убираем возврат к началу
+			});
+		});
+
+
 	</script>
 
 	<script type="module" src="./js/main.min.js"></script>
