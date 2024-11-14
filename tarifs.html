@@ -238,32 +238,42 @@
 	</div>
 
 
-		<script>
+	<script>
 		window.Telegram.WebApp.ready();
 		window.Telegram.WebApp.expand();
+		const form = document.getElementById('calculation');
+		const inputs = document.querySelectorAll('#calculation input');
 
-
-		function adjustFormMargin(input) {
-
-			setTimeout(() => {
-
-				const keyboardHeight = Telegram.WebApp.keyboardHeight || 0;
-
-
-				if (keyboardHeight > 0) {
-					form.style.marginBottom = keyboardHeight + "px";
-					scrollToInput(input, keyboardHeight);
-
-				} else {
-					form.style.marginBottom = "";
-				}
-			}, 200);
+		if (!form || inputs.length === 0) {  
+			console.error("Форма или инпуты не найдены!");
+			return;
 		}
 
-		function scrollToInput(input, keyboardHeight) {
+		let resizeObserver;
+
+		function adjustFormMargin() {
+			const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+			const keyboardHeight = window.innerHeight - viewportHeight;
+
+			if (keyboardHeight > 0) {
+				form.style.marginBottom = keyboardHeight + "px";
+
+				const activeInput = document.activeElement
+				if (inputs.contains(activeInput)) {
+					scrollToInput(activeInput)
+				}
+
+			} else {
+				form.style.marginBottom = "";
+
+			}
+		}
+
+		function scrollToInput(input) {
 
 			const inputRect = input.getBoundingClientRect();
 			const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+			const keyboardHeight = window.innerHeight - viewportHeight;
 
 
 			const inputBottom = inputRect.bottom;
@@ -281,11 +291,28 @@
 			}
 		}
 
-		const form = document.getElementById('calculation');
-		const inputs = document.querySelectorAll('#calculation input');
+
 		inputs.forEach(input => {
-			input.addEventListener('focus', () => adjustFormMargin(input));
-			input.addEventListener('blur', () => adjustFormMargin(input));
+			input.addEventListener('focus', () => {
+
+				if (!resizeObserver) {
+
+					resizeObserver = new ResizeObserver(adjustFormMargin);
+					resizeObserver.observe(document.body);
+				}
+				adjustFormMargin()
+			});
+
+			input.addEventListener('blur', () => {
+				adjustFormMargin()
+
+
+				if (resizeObserver && !inputs.contains(document.activeElement)) {
+					resizeObserver.disconnect();
+					resizeObserver = null;
+				}
+
+			});
 		});
 
 	</script>
