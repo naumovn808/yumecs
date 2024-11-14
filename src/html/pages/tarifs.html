@@ -194,38 +194,40 @@
 			return 0;
 		}
 
-		function scrollToInput(input) {
+		function adjustFormMargin(input) {
 			setTimeout(() => {
 				const inputRect = input.getBoundingClientRect();
+				const formRect = form.getBoundingClientRect();
 				const windowHeight = getKeyboardHeight();
 				const keyboardHeight = window.Telegram.WebApp.keyboardHeight || 0;
-				const scrollTop = window.pageYOffset || document.documentElement.scrollTop; // Текущая позиция прокрутки
 
-				// Рассчитываем желаемую позицию верха инпута
-				const targetInputTop = windowHeight - keyboardHeight - inputRect.height - 10; // 10 - отступ от клавиатуры
+				const formBottom = formRect.bottom;
+				const screenBottom = windowHeight - keyboardHeight;
 
-				// Разница между текущей и желаемой позицией
-				const scrollOffset = inputRect.top - targetInputTop + scrollTop;
+				if (formBottom > screenBottom) {
+					const bottomOffset = formBottom - screenBottom + 10;
+
+					form.style.marginBottom = bottomOffset + "px";
+
+					const inputTop = inputRect.top;
+					const visibleTop = window.pageYOffset || document.documentElement.scrollTop;
 
 
-				if (inputRect.bottom > windowHeight - keyboardHeight) {  // Проверяем перекрытие с учетом высоты клавиатуры
+				} else {
+					form.style.marginBottom = "";
 
-					window.scrollTo({
-						top: scrollOffset > scrollTop ? scrollOffset : scrollTop, // Прокручиваем, только если нужно
-						behavior: 'smooth'
-					});
 				}
-
 			}, 200);
 		}
 
+		const form = document.getElementById('calculation');
 		const inputs = document.querySelectorAll('#calculation input');
 		inputs.forEach(input => {
-			input.addEventListener('focus', () => scrollToInput(input));
-			input.addEventListener('blur', () => {
-				// window.scrollTo({ top: 0, behavior: 'smooth' }); // Убираем возврат к началу
-			});
+			input.addEventListener('focus', () => adjustFormMargin(input));
+			input.addEventListener('blur', () => adjustFormMargin(input));
 		});
+
+
 
 
 	</script>
