@@ -239,8 +239,8 @@
 
 
 	<script>
-		window.Telegram.WebApp.ready();
-		window.Telegram.WebApp.expand();
+		Telegram.WebApp.ready();
+		Telegram.WebApp.expand(); 
 
 		const form = document.getElementById('calculation');
 		const inputs = document.querySelectorAll('#calculation input');
@@ -249,28 +249,43 @@
 			return;
 		}
 
-		function smoothScrollTo(element, offset = 0) {
-			const elementTop = element.getBoundingClientRect().top + window.pageYOffset - offset;
-			window.scrollTo({
-				top: elementTop,
-				behavior: 'smooth'
-			});
-		}
 
 		function adjustForm(input) {
-			let keyboardHeight = window.Telegram.WebApp.keyboardHeight || 0;
 
-			if (!keyboardHeight) {
-				const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-				keyboardHeight = window.innerHeight - viewportHeight;
-			}
+			setTimeout(() => {
 
-			if (keyboardHeight > 0) {
-				form.style.marginBottom = keyboardHeight + "px";
-				smoothScrollTo(input, 10);
-			} else {
-				form.style.marginBottom = "";
-			}
+				const inputRect = input.getBoundingClientRect();
+				const formRect = form.getBoundingClientRect();
+				const windowHeight = window.innerHeight;
+
+
+				const formOffset = inputRect.top + formRect.top + window.pageYOffset;
+
+				const marginBottom = formOffset + inputRect.height - windowHeight + 10;
+
+
+				if (marginBottom > 0) {
+					form.style.marginBottom = marginBottom + "px";
+					smoothScrollTo(input, 10);
+				} else {
+					form.style.marginBottom = "";
+				}
+
+
+
+			}, 300);
+
+
+
+		}
+
+		function smoothScrollTo(element, offset = 0) {
+
+			window.scrollTo({
+				top: element.getBoundingClientRect().top + window.pageYOffset - offset,
+				behavior: 'smooth'
+
+			});
 		}
 
 
@@ -279,13 +294,12 @@
 		});
 
 
+
 		form.addEventListener('focusout', (event) => {
 
-			if (!form.contains(event.relatedTarget)) {
-				form.style.marginBottom = "";
-			}
-		});
+			form.style.marginBottom = "";
 
+		});
 
 	</script>
 
