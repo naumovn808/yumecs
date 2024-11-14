@@ -240,67 +240,66 @@
 
 	<script>
 		Telegram.WebApp.ready();
-Telegram.WebApp.expand();
+		Telegram.WebApp.expand(); 
 
-const form = document.getElementById('calculation');
-const inputs = document.querySelectorAll('#calculation input');
+		const form = document.getElementById('calculation');
+		const inputs = document.querySelectorAll('#calculation input');
 
-if (!form || inputs.length === 0) {
-    console.error("Форма или инпуты не найдены!");
-    return;
-}
+		if (!form || inputs.length === 0) {
+			return;
+		}
 
-function smoothScrollTo(element, offset = 0) {
-    const elementTop = element.getBoundingClientRect().top + window.pageYOffset - offset;
-    window.scrollTo({
-        top: elementTop,
-        behavior: 'smooth'
-    });
-}
 
-function adjustForm(input) {
-    let keyboardHeight = window.Telegram.WebApp.keyboardHeight || 0;
+		function adjustForm(input) {
 
-    if (!keyboardHeight) {
-        const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-        keyboardHeight = window.innerHeight - viewportHeight;
-    }
+			setTimeout(() => {
 
-    if (keyboardHeight > 0) {
-        form.style.marginBottom = keyboardHeight + "px";
+				const inputRect = input.getBoundingClientRect();
+				const formRect = form.getBoundingClientRect();
+				const windowHeight = window.innerHeight;
 
-        // Ожидаем стабилизации viewport
-        let viewportStable = Telegram.WebApp.viewportStable;
 
-        const onViewportChange = () => {
-            if (Telegram.WebApp.viewportStable) {
-                smoothScrollTo(input, 10);
-                Telegram.WebApp.offEvent('viewport_changed', onViewportChange);
-            }
-        };
+				const formOffset = inputRect.top + formRect.top + window.pageYOffset;
 
-        if (!viewportStable) {
-            Telegram.WebApp.onEvent('viewport_changed', onViewportChange);
-        } else {
-            smoothScrollTo(input, 10);
-        }
-    } else {
-        form.style.marginBottom = "";
-    }
-}
+				const marginBottom = formOffset + inputRect.height - windowHeight + 10;
 
-inputs.forEach(input => {
-    input.addEventListener('focus', () => adjustForm(input));
-});
 
-form.addEventListener('focusout', (event) => {
-    if (!form.contains(event.relatedTarget)) {
-        form.style.marginBottom = "";
-    }
-});
+				if (marginBottom > 0) {
+					form.style.marginBottom = marginBottom + "px";
+					smoothScrollTo(input, 10);
+				} else {
+					form.style.marginBottom = "";
+				}
 
 
 
+			}, 300);
+
+
+
+		}
+
+		function smoothScrollTo(element, offset = 0) {
+
+			window.scrollTo({
+				top: element.getBoundingClientRect().top + window.pageYOffset - offset,
+				behavior: 'smooth'
+
+			});
+		}
+
+
+		inputs.forEach(input => {
+			input.addEventListener('focus', () => adjustForm(input));
+		});
+
+
+
+		form.addEventListener('focusout', (event) => {
+
+			form.style.marginBottom = "";
+
+		});
 
 	</script>
 
