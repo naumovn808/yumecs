@@ -243,44 +243,49 @@
 
 
 		function getKeyboardHeight() {
-			if (window.Telegram.WebApp.isExpanded) {
-				return window.visualViewport ? window.visualViewport.height : window.innerHeight;
-			}
-			return 0;
-		}
+    if (window.Telegram.WebApp.isExpanded) {
+        return window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    }
+    return 0;
+}
 
-		function scrollToInput(input) {
-			setTimeout(() => {
-				const inputRect = input.getBoundingClientRect();
-				const windowHeight = getKeyboardHeight();
-				const keyboardHeight = window.Telegram.WebApp.keyboardHeight || 0;
-				const scrollTop = window.pageYOffset || document.documentElement.scrollTop; // Текущая позиция прокрутки
-
-				// Рассчитываем желаемую позицию верха инпута
-				const targetInputTop = windowHeight - keyboardHeight - inputRect.height - 10; // 10 - отступ от клавиатуры
-
-				// Разница между текущей и желаемой позицией
-				const scrollOffset = inputRect.top - targetInputTop + scrollTop;
+function scrollToInput(input) {
+    setTimeout(() => {
+        const inputRect = input.getBoundingClientRect();
+        const formRect = form.getBoundingClientRect(); // Получаем координаты формы
+        const windowHeight = getKeyboardHeight();
+        const keyboardHeight = window.Telegram.WebApp.keyboardHeight || 0;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
 
-				if (inputRect.bottom > windowHeight - keyboardHeight) {  // Проверяем перекрытие с учетом высоты клавиатуры
+        const formBottom = formRect.bottom + scrollTop; // Нижняя граница формы с учетом прокрутки
+        const screenBottom = windowHeight - keyboardHeight; // Нижняя граница экрана с учетом клавиатуры
 
-					window.scrollTo({
-						top: scrollOffset > scrollTop ? scrollOffset : scrollTop, // Прокручиваем, только если нужно
-						behavior: 'smooth'
-					});
-				}
+        // Проверяем, видна ли нижняя часть формы
+        if (formBottom > screenBottom) {
 
-			}, 200);
-		}
+             // Вычисляем отступ, чтобы форма была полностью видна
+            const bottomOffset = formBottom - screenBottom + 10; // 10 - дополнительный отступ
 
-		const inputs = document.querySelectorAll('#calculation input');
-		inputs.forEach(input => {
-			input.addEventListener('focus', () => scrollToInput(input));
-			input.addEventListener('blur', () => {
-				// window.scrollTo({ top: 0, behavior: 'smooth' }); // Убираем возврат к началу
-			});
-		});
+          window.scrollTo({
+            top: scrollTop + bottomOffset,
+            behavior: 'smooth'
+          });
+
+        }
+
+
+
+    }, 200);
+}
+
+const form = document.getElementById('calculation'); // Получаем форму
+const inputs = document.querySelectorAll('#calculation input');
+inputs.forEach(input => {
+    input.addEventListener('focus', () => scrollToInput(input));
+    // input.addEventListener('blur', () => { /* Убираем обработчик blur */ });
+});
+
 
 
 	</script>
