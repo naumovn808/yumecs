@@ -249,42 +249,45 @@
     return 0;
 }
 
-function scrollToInput(input) {
-    setTimeout(() => {
-        const inputRect = input.getBoundingClientRect();
-        const formRect = form.getBoundingClientRect(); // Получаем координаты формы
-        const windowHeight = getKeyboardHeight();
-        const keyboardHeight = window.Telegram.WebApp.keyboardHeight || 0;
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
+		function adjustFormMargin(input) {
+			setTimeout(() => {
+				const inputRect = input.getBoundingClientRect();
+				const formRect = form.getBoundingClientRect();
+				const windowHeight = getKeyboardHeight();
+				const keyboardHeight = window.Telegram.WebApp.keyboardHeight || 0;
 
-        const formBottom = formRect.bottom + scrollTop; // Нижняя граница формы с учетом прокрутки
-        const screenBottom = windowHeight - keyboardHeight; // Нижняя граница экрана с учетом клавиатуры
+				const formBottom = formRect.bottom;
+				const screenBottom = windowHeight - keyboardHeight;
 
-        // Проверяем, видна ли нижняя часть формы
-        if (formBottom > screenBottom) {
+				if (formBottom > screenBottom) {
+					const bottomOffset = formBottom - screenBottom + 10;
 
-             // Вычисляем отступ, чтобы форма была полностью видна
-            const bottomOffset = formBottom - screenBottom + 10; // 10 - дополнительный отступ
+					form.style.marginBottom = bottomOffset + "px";
 
-          window.scrollTo({
-            top: scrollTop + bottomOffset,
-            behavior: 'smooth'
-          });
+					const inputTop = inputRect.top;
+					const visibleTop = window.pageYOffset || document.documentElement.scrollTop;
 
-        }
+					if (inputTop < visibleTop) {
 
+						window.scrollTo({
+							top: visibleTop + (inputTop - visibleTop),
+							behavior: 'smooth'
+						});
+					}
 
+				} else {
+					form.style.marginBottom = "";
+				}
+			}, 200);
+		}
 
-    }, 200);
-}
-
-const form = document.getElementById('calculation'); // Получаем форму
-const inputs = document.querySelectorAll('#calculation input');
-inputs.forEach(input => {
-    input.addEventListener('focus', () => scrollToInput(input));
-    // input.addEventListener('blur', () => { /* Убираем обработчик blur */ });
-});
+		const form = document.getElementById('calculation');
+		const inputs = document.querySelectorAll('#calculation input');
+		inputs.forEach(input => {
+			input.addEventListener('focus', () => adjustFormMargin(input));
+			input.addEventListener('blur', () => adjustFormMargin(input));
+		});
 
 
 
