@@ -2,9 +2,7 @@
 <html lang="ru">
 <head>
 	<meta charset="utf-8">
-	 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
-	 <meta name="apple-mobile-web-app-capable" content="yes" />
-         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
 	<meta name="description" content="">
@@ -243,79 +241,51 @@
 	<script>
 		window.Telegram.WebApp.ready();
 		window.Telegram.WebApp.expand();
+
 		const form = document.getElementById('calculation');
 		const inputs = document.querySelectorAll('#calculation input');
 
-		if (!form || inputs.length === 0) {  
-			console.error("Форма или инпуты не найдены!");
+		if (!form || inputs.length === 0) {
 			return;
 		}
 
-		let resizeObserver;
+		function smoothScrollTo(element, offset = 0) {
+			const elementTop = element.getBoundingClientRect().top + window.pageYOffset - offset;
+			window.scrollTo({
+				top: elementTop,
+				behavior: 'smooth'
+			});
+		}
 
-		function adjustFormMargin() {
-			const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-			const keyboardHeight = window.innerHeight - viewportHeight;
+		function adjustForm(input) {
+			let keyboardHeight = window.Telegram.WebApp.keyboardHeight || 0;
+
+			if (!keyboardHeight) {
+				const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+				keyboardHeight = window.innerHeight - viewportHeight;
+			}
 
 			if (keyboardHeight > 0) {
 				form.style.marginBottom = keyboardHeight + "px";
-
-				const activeInput = document.activeElement
-				if (inputs.contains(activeInput)) {
-					scrollToInput(activeInput)
-				}
-
+				smoothScrollTo(input, 10);
 			} else {
 				form.style.marginBottom = "";
-
-			}
-		}
-
-		function scrollToInput(input) {
-
-			const inputRect = input.getBoundingClientRect();
-			const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-			const keyboardHeight = window.innerHeight - viewportHeight;
-
-
-			const inputBottom = inputRect.bottom;
-			const targetInputBottom = viewportHeight - keyboardHeight - 10;
-
-			if (inputBottom > targetInputBottom) {
-				const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-				const scrollOffset = inputBottom - targetInputBottom + scrollTop;
-
-				window.scrollTo({
-					top: scrollOffset,
-					behavior: 'smooth'
-
-				});
 			}
 		}
 
 
 		inputs.forEach(input => {
-			input.addEventListener('focus', () => {
-
-				if (!resizeObserver) {
-
-					resizeObserver = new ResizeObserver(adjustFormMargin);
-					resizeObserver.observe(document.body);
-				}
-				adjustFormMargin()
-			});
-
-			input.addEventListener('blur', () => {
-				adjustFormMargin()
-
-
-				if (resizeObserver && !inputs.contains(document.activeElement)) {
-					resizeObserver.disconnect();
-					resizeObserver = null;
-				}
-
-			});
+			input.addEventListener('focus', () => adjustForm(input));
 		});
+
+
+		form.addEventListener('focusout', (event) => {
+
+			if (!form.contains(event.relatedTarget)) {
+				form.style.marginBottom = "";
+			}
+		});
+
 
 	</script>
 
