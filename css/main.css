@@ -2193,6 +2193,7 @@ form button[type=reset]:active {
   transition-property: transform, fill, -webkit-transform;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
+  margin-right: -0.78em;
 }
 
 .nav-link-dropdown.active {
@@ -2206,14 +2207,14 @@ form button[type=reset]:active {
   fill: var(--color-default-white);
 }
 
-.nav-link-dropdown[open] {
+.nav-link-dropdown.open {
   background-color: #3b88fb;
   background-color: var(--color-bg-primary);
   color: #fff;
   color: var(--color-default-white);
 }
 
-.nav-link-dropdown[open] svg {
+.nav-link-dropdown.open svg {
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
