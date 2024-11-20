@@ -16,19 +16,18 @@ function dropdown() {
   if (!dropdownTriggers.length) return;
   dropdownTriggers.forEach((trigger) => {
     const dropdownMenu = trigger.querySelector(".dropdown-menu");
+    if (!dropdownMenu) return;
     let originalParent = null;
     let placeholder = null;
-    if (!dropdownMenu) return;
-    function moveDropdownToBody() {
-      if (!dropdownMenu || !dropdownMenu.parentNode) return;
+    const moveDropdownToBody = () => {
       originalParent = dropdownMenu.parentNode;
       placeholder = document.createElement("div");
       originalParent.insertBefore(placeholder, dropdownMenu);
       document.body.appendChild(dropdownMenu);
       dropdownMenu.classList.add("active");
       trigger.classList.add("open");
-    }
-    function restoreDropdown() {
+    };
+    const restoreDropdown = () => {
       if (originalParent && placeholder) {
         dropdownMenu.classList.remove("active");
         trigger.classList.remove("open");
@@ -37,36 +36,34 @@ function dropdown() {
         originalParent = null;
         placeholder = null;
       }
-    }
-    function toggleDropdown(event) {
+    };
+    const toggleDropdown = (event) => {
       event.stopPropagation();
       dropdownTriggers.forEach((otherTrigger) => {
-        if (otherTrigger !== trigger) {
-          const otherMenu = otherTrigger.querySelector(".dropdown-menu");
-          if (otherMenu?.classList.contains("active")) {
-            otherTrigger._restoreDropdown?.();
-          }
+        if (otherTrigger !== trigger && otherTrigger.classList.contains("open")) {
+          otherTrigger.querySelector(".dropdown-menu")?.classList.remove("active");
+          otherTrigger.classList.remove("open");
+          restoreDropdown();
         }
       });
       if (dropdownMenu.classList.contains("active")) {
         restoreDropdown();
       } else {
-        moveDropdownToBody();
+        if (originalParent && placeholder) {
+          restoreDropdown();
+        } else {
+          moveDropdownToBody();
+        }
       }
-    }
-    function closeDropdown(event) {
-      if (dropdownMenu && !dropdownMenu.contains(event.target) && event.target !== trigger) {
+    };
+    const closeDropdown = (event) => {
+      if (event.target.closest(".dropdown-menu")) return;
+      if (!trigger.contains(event.target)) {
         restoreDropdown();
       }
-    }
+    };
     trigger.addEventListener("click", toggleDropdown);
     document.addEventListener("click", closeDropdown);
-    window.addEventListener("resize", () => {
-      if (dropdownMenu.classList.contains("active")) {
-        restoreDropdown();
-      }
-    });
-    trigger._restoreDropdown = restoreDropdown;
   });
 }
 
