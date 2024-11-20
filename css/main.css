@@ -2283,7 +2283,18 @@ form button[type=reset]:active {
 
 .nav-dropdown {
   outline: none;
-  text-wrap: balance;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 0.5em;
   -moz-user-select: none;
        user-select: none;
   -webkit-user-select: none;
