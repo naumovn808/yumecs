@@ -39,6 +39,7 @@
 	transform: rotate(180deg);
 	background-color: var(--color-bg-primary);
 	fill: var(--color-default-white);
+
 }
 
 .dropdown-menu {
@@ -83,7 +84,11 @@
 
 .nav-dropdown {
 	outline: none;
-	text-wrap: balance;
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	gap: 0.5em;
 	user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
