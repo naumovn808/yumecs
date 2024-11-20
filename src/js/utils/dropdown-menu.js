@@ -1,74 +1,71 @@
 export function dropdown() {
-	const dropdownTriggers = document.querySelectorAll(".nav-link-dropdown");
+    const dropdownTriggers = document.querySelectorAll(".nav-link-dropdown");
 
-	if (!dropdownTriggers.length) return;
+    if (!dropdownTriggers.length) return;
 
-	dropdownTriggers.forEach((trigger) => {
-		const dropdownMenu = trigger.querySelector(".dropdown-menu");
-		let originalParent = null;
-		let placeholder = null;
+    dropdownTriggers.forEach((trigger) => {
+        const dropdownMenu = trigger.querySelector(".dropdown-menu");
 
-		if (!dropdownMenu) return;
+        if (!dropdownMenu) return;
 
-		function moveDropdownToBody() {
-			if (!dropdownMenu || !dropdownMenu.parentNode) return;
+        let originalParent = null;
+        let placeholder = null;
 
-			originalParent = dropdownMenu.parentNode;
-			placeholder = document.createElement("div");
-			originalParent.insertBefore(placeholder, dropdownMenu);
+        const moveDropdownToBody = () => {
+            originalParent = dropdownMenu.parentNode;
+            placeholder = document.createElement("div");
+            originalParent.insertBefore(placeholder, dropdownMenu);
+            document.body.appendChild(dropdownMenu);
+            dropdownMenu.classList.add("active");
+            trigger.classList.add("open");
+        };
 
-			document.body.appendChild(dropdownMenu);
-			dropdownMenu.classList.add("active");
-			trigger.classList.add("open");
-		}
+        const restoreDropdown = () => {
+            if (originalParent && placeholder) {
+                dropdownMenu.classList.remove("active");
+                trigger.classList.remove("open");
+                originalParent.insertBefore(dropdownMenu, placeholder);
+                placeholder.remove();
+                originalParent = null;
+                placeholder = null;
+            }
+        };
 
-		function restoreDropdown() {
-			if (originalParent && placeholder) {
-				dropdownMenu.classList.remove("active");
-				trigger.classList.remove("open");
+        const toggleDropdown = (event) => {
+            event.stopPropagation();
 
-				originalParent.insertBefore(dropdownMenu, placeholder);
-				placeholder.remove();
-				originalParent = null;
-				placeholder = null;
-			}
-		}
+            dropdownTriggers.forEach((otherTrigger) => {
+                if (otherTrigger !== trigger && otherTrigger.classList.contains("open")) {
+                    otherTrigger.querySelector(".dropdown-menu")?.classList.remove("active");
+                     otherTrigger.classList.remove("open");
+                     restoreDropdown();
+                }
+            });
 
-		function toggleDropdown(event) {
-			event.stopPropagation();
+            if (dropdownMenu.classList.contains("active")) {
+                restoreDropdown();
+            } else {
+               if (originalParent && placeholder){
+                 restoreDropdown();
 
-			dropdownTriggers.forEach((otherTrigger) => {
+               }
+               else{
+                 moveDropdownToBody();
+               }
+            }
+        };
 
-				if (otherTrigger !== trigger) {
-					const otherMenu = otherTrigger.querySelector(".dropdown-menu");
-					if (otherMenu?.classList.contains("active")) {
-						otherTrigger._restoreDropdown?.();
-					}
-				}
-			});
+        const closeDropdown = (event) => {
+             if(event.target.closest(".dropdown-menu")) return;
 
-			if (dropdownMenu.classList.contains("active")) {
-				restoreDropdown();
-			} else {
-				moveDropdownToBody();
-			}
-		}
+            if (!trigger.contains(event.target) ){
 
-		function closeDropdown(event) {
-			if (dropdownMenu && !dropdownMenu.contains(event.target) && event.target !== trigger) {
-				restoreDropdown();
-			}
-		}
+                    restoreDropdown()
+            }
+        };
 
-		trigger.addEventListener("click", toggleDropdown);
-		document.addEventListener("click", closeDropdown);
+        trigger.addEventListener("click", toggleDropdown);
+        document.addEventListener("click", closeDropdown);
 
-		window.addEventListener("resize", () => {
-			if (dropdownMenu.classList.contains("active")) {
-				restoreDropdown();
-			}
-		});
-
-		trigger._restoreDropdown = restoreDropdown;
-	});
+    });
 }
