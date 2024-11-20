@@ -18,6 +18,7 @@
 		fill: var(--color-text-primary);
 		transition-property: transform, fill;
 		transition-duration: 0.5s;
+		margin-right: -0.78em;
 	}
 }
 
@@ -30,12 +31,12 @@
 	}
 }
 
-.nav-link-dropdown[open] {
+.nav-link-dropdown.open {
 	background-color: var(--color-bg-primary);
 	color: var(--color-default-white);
 }
 
-.nav-link-dropdown[open] svg {
+.nav-link-dropdown.open svg {
 	transform: rotate(180deg);
 	background-color: var(--color-bg-primary);
 	fill: var(--color-default-white);
