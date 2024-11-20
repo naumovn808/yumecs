@@ -2193,7 +2193,6 @@ form button[type=reset]:active {
   transition-property: transform, fill, -webkit-transform;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
-  margin-right: -0.78em;
 }
 
 .nav-link-dropdown.active {
