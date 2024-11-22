@@ -2,7 +2,7 @@ export function tabs() {
 	const tabsLinks = document.querySelectorAll(".tabs__link");
 	const tabsContent = document.querySelectorAll("[data-tab-content]");
 	const bg = document.querySelector(".tabs__bg");
-	const tabsAbout = document.querySelector(".tabs__about-head");
+	const tabsAbout = document.querySelectorAll(".tabs__about-head");
 
 	if (!tabsLinks || !tabsContent || !bg || !tabsAbout) return;
 
@@ -23,8 +23,16 @@ export function tabs() {
 		});
 	});
 
-	tabsAbout.addEventListener("click", (e) => {
-		e.preventDefault();
-		tabsAbout.classList.toggle("active");
+	tabsAbout.forEach((tab) => {
+		tab.addEventListener("click", (evt) => {
+			evt.preventDefault();
+
+			if (tab.classList.contains("active")) {
+				tab.classList.remove("active");
+			} else {
+				tabsAbout.forEach((t) => t.classList.remove("active"));
+				tab.classList.add("active");
+			}
+		});
 	});
 }
